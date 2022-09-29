@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+certifi = "*"
+confluent-kafka = {version = ">=1.4.2", extras = ["avro", "json", "protobuf"]}
+ipykernel = "*"
+faker = "*"
+
+[dev-packages]
+flake8 = "*"
+autopep8 = "*"
+requests-futures = "*"
+
+[requires]
+python_version = "3.7"

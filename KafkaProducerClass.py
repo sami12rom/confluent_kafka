@@ -42,10 +42,18 @@ class KafkaProducer:
             print(f"Topic {topic} created")
         except Exception as e:
             if e.args[0].code() == KafkaError.TOPIC_ALREADY_EXISTS:
-                print(f"Failed to create topic {topic}: {e}")
+                print(f"Result to create topic {topic}: {e}")
             else:
                 print(f"Failed to create topic {topic}: {e}")
                 sys.exit(1)
+    
+    def list_topics(self, topic=None):
+        admin_client_conf = self.pop_schema_registry_params_from_config()
+        admin = AdminClient(admin_client_conf)
+        fs = admin.list_topics(topic)
+        return fs
+
+
 
     def acknowledge_delivery(self, err, msg):
         global delivered_records

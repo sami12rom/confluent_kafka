@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 requests = "*"
 certifi = "*"
-confluent-kafka = {version = ">=1.4.2", extras = ["avro", "json", "protobuf"]}
 ipykernel = "*"
 faker = "*"
 
@@ -14,6 +13,11 @@ faker = "*"
 flake8 = "*"
 autopep8 = "*"
 requests-futures = "*"
+pandas = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
+
+[packages.confluent-kafka]
+version = ">=1.4.2"
+extras = [ "avro", "json", "protobuf",]

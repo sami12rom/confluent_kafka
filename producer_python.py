@@ -13,7 +13,8 @@ args = parser.parse_args()
 
 #topic_name = "episode"
 #process_file = "data/title.crew.json"
-topic_name = re.search("(?<=data/)(.*)(?=.json)", args.file).group()
+topic_regex_match = re.search("(?<=data/)(.*)(?=.json)", args.file)
+topic_name = topic_regex_match.group() if topic_regex_match else ""
 process_file = args.file
 print(f"Processing {args.file}")
 

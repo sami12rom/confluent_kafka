@@ -1,5 +1,4 @@
 -- Create a new Stream from a newly created kafka topic
-
 DEFINE topic_name = 'akas';
 CREATE STREAM ${topic_name} (id INTEGER KEY, titleId STRING, ordering STRING, title STRING, region STRING, language STRING, types STRING, attributes STRING, isOriginalTitle STRING) 
 WITH (kafka_topic='${topic_name}', value_format='JSON');
@@ -13,7 +12,7 @@ CREATE STREAM ${topic_name}  (id INTEGER KEY, tconst STRING, directors STRING, w
 WITH (kafka_topic='${topic_name}', value_format='JSON');
 
 DEFINE topic_name = 'ratings';
-CREATE STREAM ${topic_name}  (id INTEGER KEY, tconst STRING, averageRating STRING, numVotes STRING) 
+CREATE STREAM ${topic_name}  (id STRING KEY, tconst STRING, averageRating STRING, numVotes STRING) 
 WITH (kafka_topic='${topic_name}', value_format='JSON');
 
 DEFINE topic_name = 'episode';
@@ -25,21 +24,35 @@ CREATE STREAM ${topic_name}  (id INTEGER KEY, tconst STRING, ordering STRING, nc
 WITH (kafka_topic='${topic_name}', value_format='JSON');
 
 
+
 -- Join two streams together
 CREATE STREAM COMBINED AS
-  SELECT akas.titleId,akas.ordering,akas.title,akas.region,akas.language,akas.types,akas.attributes,akas.isOriginalTitle,EPISODE.episodeNumber, EPISODE.seasonNumber
+  SELECT akas.titleId,akas.title,akas.region,akas.language,akas.types,akas.isOriginalTitle,EPISODE.episodeNumber, EPISODE.seasonNumber
   FROM akas
   JOIN EPISODE WITHIN 1 MINUTES
   ON akas.titleId = EPISODE.tconst EMIT CHANGES;
 
 
-
 -- Join two streams together
-CREATE STREAM s3 AS
-  SELECT akas.titleId,akas.ordering,akas.titleId,akas.title,akas.region,akas.language,akas.types,akas.attributes,akas.isOriginalTitle,title_basics.originalTitle, title_basics.isAdult,title_basics.startYear, title_basics.endYear
-  FROM akas
-  JOIN title_basics WITHIN 5 MINUTES
-  ON akas.titleId = title_basics.tconst EMIT CHANGES;
+CREATE STREAM COMBINED_3 AS
+  SELECT a.titleId,a.title,a.region,a.language,a.types,a.isOriginalTitle,e.episodeNumber, e.seasonNumber
+  FROM akas a
+  JOIN EPISODE e WITHIN 1 MINUTES ON a.titleId = e.tconst
+  JOIN ratings r WITHIN 1 MINUTES ON e.tconst = r.tconst
+  EMIT CHANGES;
+
+
+  CREATE STREAM BEST_RATINGS AS
+  SELECT r.id, r.tconst, r.averageRating, r.numVotes
+  FROM ratings r;
+  
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 

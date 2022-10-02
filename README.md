@@ -1,5 +1,6 @@
 # Confluent Kafka
 
+# Producers
 cd /home/github/confluent_kafka/
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/akas.json"
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/title_basics.json"
@@ -9,6 +10,12 @@ cd /home/github/confluent_kafka/
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/ratings.json"
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/name_basics.json"
 
+# Consumers
+cd /home/github/confluent_kafka/
+/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t akas
+/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t title_basics
+/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t crew
+/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t ratings
 
 
 

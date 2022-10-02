@@ -1,6 +1,20 @@
 # Confluent Kafka
 
-# Producers
+## Linkedin
+<a href="https://www.linkedin.com/in/sami-alashabi/" target="_blank"><img src="https://raw.githubusercontent.com/nakulbhati/nakulbhati/master/contain/in.png" alt="LinkedIn" width="30"></a>
+
+
+## Introduction
+
+Create Confluent Kafka Producer & Consumer with Python.
+
+For more info:
+* https://www.confluent.io/
+* https://confluent.cloud/
+
+Link to Dataset: https://datasets.imdbws.com/
+
+## Producers
 cd /home/github/confluent_kafka/
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/akas.json"
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/title_basics.json"
@@ -10,7 +24,7 @@ cd /home/github/confluent_kafka/
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/ratings.json"
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/name_basics.json"
 
-# Consumers
+## Consumers
 cd /home/github/confluent_kafka/
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t akas
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t title_basics
@@ -18,9 +32,7 @@ cd /home/github/confluent_kafka/
 /root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t ratings
 
 
-
-
-# Dataset Information
+## Dataset Information
 
 IMDb Dataset Details
 

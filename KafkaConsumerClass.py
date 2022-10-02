@@ -1,13 +1,9 @@
-import os
-import sys
-sys.path.append(f"{os.getcwd()}/libs")
-
-
 from confluent_kafka.admin import AdminClient, NewTopic  # noqa: E402
 import certifi  # noqa: E402
 from confluent_kafka import Consumer, KafkaError  # noqa: E402
 import ccloud_lib
 import json
+
 
 class KafkaConsumer:
     def __init__(self, config_file_location):

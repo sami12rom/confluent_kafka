@@ -29,7 +29,7 @@ curl \
   -X POST \
   -H "Content-Type: application/json" \
   -H "Transfer-Encoding: chunked" \
-  -H "Authorization: Basic UFNXM0xTQVZQMjNUVFQ3STpHRzBHU2Z3bGlPVUpMc3dacCtzRkxRQ1EyTXFzUFRYY3B5L2JuWmtkdFNFMmRpeTFCZFJsTnBQYU8wVCs1cFRM" \
+  -H "Authorization: Basic $authorization" \
   https://pkc-zpjg0.eu-central-1.aws.confluent.cloud:443/kafka/v3/clusters/lkc-gqd3g1/topics/$topic_name/records \
   -T-
   

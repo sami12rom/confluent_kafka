@@ -18,18 +18,18 @@ Link to Dataset: https://datasets.imdbws.com/
 cd /home/github/confluent_kafka/
 /root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/title_akas_tsv_gz.json"
 /root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/title_basics_tsv_gz.json"
-/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/crew.json"
-/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/episode.json"
-/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/principals.json"
-/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/ratings.json"
-/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/name_basics.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/title_crew_tsv_gz.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/title_episode_tsv_gz.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/title_principals_tsv_gz.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/title_ratings_tsv_gz.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/name_basics_tsv_gz.json"
 
 ## Consumers
 cd /home/github/confluent_kafka/
-/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t akas
-/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t title_basics
-/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t crew
-/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t ratings
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t title_akas_tsv_gz
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t title_basics_tsv_gz
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t title_crew_tsv_gz
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t title_ratings_tsv_gz
 
 
 ## Dataset Information

@@ -16,20 +16,20 @@ Link to Dataset: https://datasets.imdbws.com/
 
 ## Producers
 cd /home/github/confluent_kafka/
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/akas.json"
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/title_basics.json"
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/crew.json"
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/episode.json"
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/principals.json"
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/ratings.json"
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/name_basics.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/title_akas_tsv_gz.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/title_basics_tsv_gz.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/crew.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/episode.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/principals.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/ratings.json"
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python producer_python.py -f "data/json/name_basics.json"
 
 ## Consumers
 cd /home/github/confluent_kafka/
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t akas
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t title_basics
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t crew
-/root/.virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t ratings
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t akas
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t title_basics
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t crew
+/root/.local/share/virtualenvs/confluent_kafka-uEDxVY-e/bin/python consumer.py -f python.config -t ratings
 
 
 ## Dataset Information

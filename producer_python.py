@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 #topic_name = "episode"
 #process_file = "data/title.crew.json"
-topic_regex_match = re.search("(?<=data/)(.*)(?=.json)", args.file)
+topic_regex_match = re.search("(?<=data/json/)(.*)(?=.json)", args.file)
 topic_name = topic_regex_match.group() if topic_regex_match else ""
 process_file = args.file
 print(f"Processing {args.file}")
@@ -32,16 +32,16 @@ def gen_json(file_name):
 if __name__ == "__main__":
 
     # Create Kafka Topic
-    kafka.create_topic(topic_name, num_partitions=3, replication_factor=3)
+    kafka.create_topic(topic_name, num_partitions=2, replication_factor=3)
 
     # Pull the first 10000 rows from the generator
     top10000 = tuple(itertools.islice(gen_json(process_file), 10000))
 
     # Send data to Kafka
-    for message in top10000:
+    for message in top10000[0]:
 
         kafka.produce_data(
             topic_name,
-            key=message[''],
+            key=str(top10000[0].index(message)),
             value=json.dumps(message)
         )
